@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://10.142.5.91:9763/services/student_DataService?wsdl2" uri="src/conf/xml-resources/web-service-references/student_DataService_wsdl2/wsdl/10.142.5.91_9763/services/student_DataService.wsdl2.xml"/>
+    <system systemId="http://10.142.5.91:9763/services/student_DataService?wsdl" uri="src/conf/xml-resources/web-service-references/student_DataService/wsdl/10.142.5.91_9763/services/student_DataService.wsdl"/>
+    <system systemId="http://10.142.5.91:9763/services/faculty_DataService?wsdl" uri="src/conf/xml-resources/web-service-references/faculty_DataService/wsdl/10.142.5.91_9763/services/faculty_DataService.wsdl"/>
+    <system systemId="http://10.142.5.91:9763/services/student_took_course_DataService?wsdl" uri="src/conf/xml-resources/web-service-references/student_took_course_DataService/wsdl/10.142.5.91_9763/services/student_took_course_DataService.wsdl"/>
+    <system systemId="http://10.142.5.91:9763/services/Banner_SAPMS?wsdl" uri="src/conf/xml-resources/web-service-references/Banner_SAPMS/wsdl/10.142.5.91_9763/services/Banner_SAPMS.wsdl"/>
+    <system systemId="http://10.142.5.91:9763/services/SAPMS_Main_Data_Service?wsdl" uri="src/conf/xml-resources/web-service-references/SAPMS_Main_Data_Service/wsdl/10.142.5.91_9763/services/SAPMS_Main_Data_Service.wsdl"/>
+</catalog>

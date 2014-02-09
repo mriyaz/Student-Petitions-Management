@@ -1,0 +1,83 @@
+<wsdl2:description xmlns:wsdl2="http://www.w3.org/ns/wsdl" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wrpc="http://www.w3.org/ns/wsdl/rpc" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:tns="sapms.ds" xmlns:ns0="sapms.ds" xmlns:wsdlx="http://www.w3.org/ns/wsdl-extensions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:whttp="http://www.w3.org/ns/wsdl/http" targetNamespace="sapms.ds"><wsdl2:documentation></wsdl2:documentation><wsdl2:types><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="sapms.ds">
+<xs:element name="insert_student_operation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+<xs:element name="department" nillable="true" type="xs:string"></xs:element>
+<xs:element name="major" nillable="true" type="xs:string"></xs:element>
+<xs:element name="cgpa" nillable="true" type="xs:string"></xs:element>
+<xs:element name="mobile" nillable="true" type="xs:string"></xs:element>
+<xs:element name="expire_date" nillable="true" type="xs:dateTime"></xs:element>
+<xs:element name="first_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="middle_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="last_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="college" nillable="true" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="delete_student_operation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="update_student_operation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="department" nillable="true" type="xs:string"></xs:element>
+<xs:element name="major" nillable="true" type="xs:string"></xs:element>
+<xs:element name="cgpa" nillable="true" type="xs:string"></xs:element>
+<xs:element name="mobile" nillable="true" type="xs:string"></xs:element>
+<xs:element name="expire_date" nillable="true" type="xs:dateTime"></xs:element>
+<xs:element name="first_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="middle_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="last_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="college" nillable="true" type="xs:string"></xs:element>
+<xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="select_with_key_student_operation">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="studentCollection" type="ns0:studentCollection"></xs:element>
+<xs:complexType name="studentCollection">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="student" type="ns0:student"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="student">
+<xs:sequence>
+<xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+<xs:element name="department" nillable="true" type="xs:string"></xs:element>
+<xs:element name="major" nillable="true" type="xs:string"></xs:element>
+<xs:element name="cgpa" nillable="true" type="xs:string"></xs:element>
+<xs:element name="mobile" nillable="true" type="xs:string"></xs:element>
+<xs:element name="expire_date" nillable="true" type="xs:dateTime"></xs:element>
+<xs:element name="first_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="middle_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="last_name" nillable="true" type="xs:string"></xs:element>
+<xs:element name="college" nillable="true" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="select_all_student_operation">
+<xs:complexType>
+<xs:sequence></xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+<xs:element name="DataServiceFault" type="xs:string"></xs:element>
+<xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+<xs:element name="DATA_SERVICE_RESPONSE">
+<xs:complexType>
+<xs:sequence>
+<xs:any minOccurs="0"></xs:any>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema></wsdl2:types><wsdl2:interface name="ServiceInterface"><wsdl2:fault name="DataServiceFault" element="ns1:DataServiceFault"></wsdl2:fault><wsdl2:operation name="select_all_student_operation" style="http://www.w3.org/ns/wsdl/style/iri http://www.w3.org/ns/wsdl/style/multipart" pattern="http://www.w3.org/ns/wsdl/in-out"><wsdl2:documentation></wsdl2:documentation><wsdl2:input element="ns0:select_all_student_operation" wsaw:Action="urn:select_all_student_operation"></wsdl2:input><wsdl2:output element="ns0:studentCollection" wsaw:Action="urn:select_all_student_operationResponse"></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault" wsaw:Action="urn:select_all_student_operationDataServiceFault"></wsdl2:outfault></wsdl2:operation><wsdl2:operation name="delete_student_operation" style="http://www.w3.org/ns/wsdl/style/multipart" pattern="http://www.w3.org/ns/wsdl/robust-in-only"><wsdl2:documentation></wsdl2:documentation><wsdl2:input element="ns0:delete_student_operation" wsaw:Action="urn:delete_student_operation"></wsdl2:input></wsdl2:operation><wsdl2:operation name="insert_student_operation" style="http://www.w3.org/ns/wsdl/style/multipart" pattern="http://www.w3.org/ns/wsdl/robust-in-only"><wsdl2:documentation></wsdl2:documentation><wsdl2:input element="ns0:insert_student_operation" wsaw:Action="urn:insert_student_operation"></wsdl2:input></wsdl2:operation><wsdl2:operation name="update_student_operation" style="http://www.w3.org/ns/wsdl/style/multipart" pattern="http://www.w3.org/ns/wsdl/robust-in-only"><wsdl2:documentation></wsdl2:documentation><wsdl2:input element="ns0:update_student_operation" wsaw:Action="urn:update_student_operation"></wsdl2:input></wsdl2:operation><wsdl2:operation name="select_with_key_student_operation" style="http://www.w3.org/ns/wsdl/style/multipart" pattern="http://www.w3.org/ns/wsdl/in-out"><wsdl2:documentation></wsdl2:documentation><wsdl2:input element="ns0:select_with_key_student_operation" wsaw:Action="urn:select_with_key_student_operation"></wsdl2:input><wsdl2:output element="ns0:studentCollection" wsaw:Action="urn:select_with_key_student_operationResponse"></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault" wsaw:Action="urn:select_with_key_student_operationDataServiceFault"></wsdl2:outfault></wsdl2:operation></wsdl2:interface><wsdl2:binding name="student_DataServiceSOAP12Binding" interface="tns:ServiceInterface" type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.2" wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP"><wsdl2:operation ref="tns:select_all_student_operation" wsoap:action="urn:select_all_student_operation" whttp:location="select_all_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation><wsdl2:operation ref="tns:delete_student_operation" wsoap:action="urn:delete_student_operation" whttp:location="delete_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:insert_student_operation" wsoap:action="urn:insert_student_operation" whttp:location="insert_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:update_student_operation" wsoap:action="urn:update_student_operation" whttp:location="update_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:select_with_key_student_operation" wsoap:action="urn:select_with_key_student_operation" whttp:location="select_with_key_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation></wsdl2:binding><wsdl2:binding name="student_DataServiceSOAP11Binding" interface="tns:ServiceInterface" type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.1" wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP"><wsdl2:operation ref="tns:select_all_student_operation" wsoap:action="urn:select_all_student_operation" whttp:location="select_all_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation><wsdl2:operation ref="tns:delete_student_operation" wsoap:action="urn:delete_student_operation" whttp:location="delete_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:insert_student_operation" wsoap:action="urn:insert_student_operation" whttp:location="insert_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:update_student_operation" wsoap:action="urn:update_student_operation" whttp:location="update_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:select_with_key_student_operation" wsoap:action="urn:select_with_key_student_operation" whttp:location="select_with_key_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation></wsdl2:binding><wsdl2:binding name="student_DataServiceHttpBinding" interface="tns:ServiceInterface" type="http://www.w3.org/ns/wsdl/http"><wsdl2:operation ref="tns:select_all_student_operation" whttp:method="POST" whttp:location="select_all_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation><wsdl2:operation ref="tns:delete_student_operation" whttp:method="POST" whttp:location="delete_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:insert_student_operation" whttp:method="POST" whttp:location="insert_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:update_student_operation" whttp:method="POST" whttp:location="update_student_operation"><wsdl2:output></wsdl2:output></wsdl2:operation><wsdl2:operation ref="tns:select_with_key_student_operation" whttp:method="POST" whttp:location="select_with_key_student_operation"><wsdl2:output></wsdl2:output><wsdl2:output></wsdl2:output><wsdl2:outfault ref="tns:DataServiceFault"></wsdl2:outfault></wsdl2:operation></wsdl2:binding><wsdl2:service name="student_DataService" interface="tns:ServiceInterface"><wsdl2:endpoint name="HTTPEndpoint" binding="tns:student_DataServiceHttpBinding" address="http://10.142.5.91:9763/services/student_DataService.HTTPEndpoint/"></wsdl2:endpoint><wsdl2:endpoint name="SecureSOAP12Endpoint" binding="tns:student_DataServiceSOAP12Binding" address="https://10.142.5.91:9443/services/student_DataService.SecureSOAP12Endpoint/"></wsdl2:endpoint><wsdl2:endpoint name="SOAP11Endpoint" binding="tns:student_DataServiceSOAP11Binding" address="http://10.142.5.91:9763/services/student_DataService.SOAP11Endpoint/"></wsdl2:endpoint><wsdl2:endpoint name="SecureHTTPEndpoint" binding="tns:student_DataServiceHttpBinding" address="https://10.142.5.91:9443/services/student_DataService.SecureHTTPEndpoint/"></wsdl2:endpoint><wsdl2:endpoint name="SecureSOAP11Endpoint" binding="tns:student_DataServiceSOAP11Binding" address="https://10.142.5.91:9443/services/student_DataService.SecureSOAP11Endpoint/"></wsdl2:endpoint><wsdl2:endpoint name="SOAP12Endpoint" binding="tns:student_DataServiceSOAP12Binding" address="http://10.142.5.91:9763/services/student_DataService.SOAP12Endpoint/"></wsdl2:endpoint></wsdl2:service></wsdl2:description>

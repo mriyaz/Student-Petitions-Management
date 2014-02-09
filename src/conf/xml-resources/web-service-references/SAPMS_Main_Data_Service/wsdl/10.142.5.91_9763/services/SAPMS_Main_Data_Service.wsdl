@@ -1,0 +1,2422 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="sa.edu.kfupm.sapms.data" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="sa.edu.kfupm.sapms.data">
+    <wsdl:documentation></wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="sa.edu.kfupm.sapms.data">
+            <xs:element name="insert_faculty_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_status_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="statusCollection" type="ns0:statusCollection"></xs:element>
+            <xs:complexType name="statusCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="status" type="ns0:status"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="status">
+                <xs:sequence>
+                    <xs:element name="status_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="status_description" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_with_key_petition_has_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="petition_has_statusCollection" type="ns0:petition_has_statusCollection"></xs:element>
+            <xs:complexType name="petition_has_statusCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="petition_has_status" type="ns0:petition_has_status"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="petition_has_status">
+                <xs:sequence>
+                    <xs:element name="Petition_petition_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Status_status_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="delete_action_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_student_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_action_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_text" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Action_Type_action_type_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Faculty_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_petition_has_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_action_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="actionCollection" type="ns0:actionCollection"></xs:element>
+            <xs:complexType name="actionCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="action" type="ns0:action"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="action">
+                <xs:sequence>
+                    <xs:element name="action_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="action_text" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="Action_Type_action_type_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Petition_petition_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Faculty_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_with_key_faculty_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="facultyCollection" type="ns0:facultyCollection"></xs:element>
+            <xs:complexType name="facultyCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="faculty" type="ns0:faculty"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="faculty">
+                <xs:sequence>
+                    <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="delete_petition_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_action_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Action_action_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Document_document_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_petition_type_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="petition_typeCollection" type="ns0:petition_typeCollection"></xs:element>
+            <xs:complexType name="petition_typeCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="petition_type" type="ns0:petition_type"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="petition_type">
+                <xs:sequence>
+                    <xs:element name="petition_type_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="petition_type_description" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="petition_process_path" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="petition_type_details" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_all_petition_has_status_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_document_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="documentCollection" type="ns0:documentCollection"></xs:element>
+            <xs:complexType name="documentCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="document" type="ns0:document"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="document">
+                <xs:sequence>
+                    <xs:element name="document_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="document_name" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="document_extension" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="document_mime_type" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="document_path" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                    <xs:element name="data" nillable="true" type="xs:base64Binary"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="insert_petition_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Document_document_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_student_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="studentCollection" type="ns0:studentCollection"></xs:element>
+            <xs:complexType name="studentCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="student" type="ns0:student"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="student">
+                <xs:sequence>
+                    <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_all_action_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="action_attachmentCollection" type="ns0:action_attachmentCollection"></xs:element>
+            <xs:complexType name="action_attachmentCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="action_attachment" type="ns0:action_attachment"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="action_attachment">
+                <xs:sequence>
+                    <xs:element name="action_attachment_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Action_action_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Document_document_id" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="update_document_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document_name" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_extension" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_mime_type" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_path" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                        <xs:element name="data" nillable="true" type="xs:base64Binary"></xs:element>
+                        <xs:element name="document_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_action_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="action_typeCollection" type="ns0:action_typeCollection"></xs:element>
+            <xs:complexType name="action_typeCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="action_type" type="ns0:action_type"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="action_type">
+                <xs:sequence>
+                    <xs:element name="action_type_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="action_type_description" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_with_key_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_action_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_type_description" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_petition_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="petitionCollection" type="ns0:petitionCollection"></xs:element>
+            <xs:complexType name="petitionCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="petition" type="ns0:petition"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="petition">
+                <xs:sequence>
+                    <xs:element name="petition_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="petition_text" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="Student_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="Petition_Type_petition_type_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="delete_petition_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_student_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_petition_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_text" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Student_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Petition_Type_petition_type_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                        <xs:element name="petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_petition_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_type_description" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="petition_process_path" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="petition_type_details" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_student_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_petition_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_petition_has_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Status_status_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_student_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_petition_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_text" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Student_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Petition_Type_petition_type_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status_description" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_action_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_faculty_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="status_description" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="status_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_faculty_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_action_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_action_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_type_description" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="action_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_action_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_text" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="Action_Type_action_type_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Faculty_kfupm_id" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                        <xs:element name="action_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_petition_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_action_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Action_action_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Document_document_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="action_attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_petition_type_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="petition_type_description" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="petition_process_path" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="petition_type_details" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="petition_type_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_faculty_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="kfupm_id" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_petition_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_petition_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="Document_document_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_petition_has_status_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Status_status_id" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                        <xs:element name="Petition_petition_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_action_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="action_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_document_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_petition_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="petition_attachmentCollection" type="ns0:petition_attachmentCollection"></xs:element>
+            <xs:complexType name="petition_attachmentCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="petition_attachment" type="ns0:petition_attachment"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="petition_attachment">
+                <xs:sequence>
+                    <xs:element name="attachment_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Petition_petition_id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="Document_document_id" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_all_action_type_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_action_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_petition_attachment_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_document_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document_id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_document_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="document_name" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_extension" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_mime_type" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="document_path" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="timestamp" nillable="true" type="xs:dateTime"></xs:element>
+                        <xs:element name="data" nillable="true" type="xs:base64Binary"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"></xs:element>
+            <xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"></xs:any>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="select_all_petition_has_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_petition_has_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_has_status_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_has_statusCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_petition_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_petition_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_petition_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_petition_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_action_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_action_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_document_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_document_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_document_operationResponse">
+        <wsdl:part name="parameters" element="ns0:documentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_petition_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_type_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_typeCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_action_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_operationResponse">
+        <wsdl:part name="parameters" element="ns0:actionCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_petition_has_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_petition_has_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_action_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_action_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_action_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_operationResponse">
+        <wsdl:part name="parameters" element="ns0:actionCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_action_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_type_operationResponse">
+        <wsdl:part name="parameters" element="ns0:action_typeCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_petition_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_petition_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_faculty_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_faculty_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_action_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_action_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_action_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_action_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_student_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_student_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_student_operationResponse">
+        <wsdl:part name="parameters" element="ns0:studentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_petition_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_petition_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_faculty_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_faculty_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_faculty_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_faculty_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_faculty_operationResponse">
+        <wsdl:part name="parameters" element="ns0:facultyCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_petition_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_attachment_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_attachmentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_document_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_document_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_document_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_document_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_petition_has_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_petition_has_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_action_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_type_operationResponse">
+        <wsdl:part name="parameters" element="ns0:action_typeCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_student_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_student_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_action_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_action_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_status_operationResponse">
+        <wsdl:part name="parameters" element="ns0:statusCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_student_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_student_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_petition_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_petition_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petitionCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_student_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_student_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_petition_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_type_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_typeCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_petition_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_attachment_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_attachmentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_action_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_action_attachment_operationResponse">
+        <wsdl:part name="parameters" element="ns0:action_attachmentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_petition_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_petition_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_petition_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petitionCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_faculty_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_faculty_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_faculty_operationResponse">
+        <wsdl:part name="parameters" element="ns0:facultyCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_student_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_student_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_student_operationResponse">
+        <wsdl:part name="parameters" element="ns0:studentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_action_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_action_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_action_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_action_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_petition_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_petition_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_action_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_action_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_petition_type_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_petition_type_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_petition_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_petition_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_petition_has_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_petition_has_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_action_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_action_attachment_operationResponse">
+        <wsdl:part name="parameters" element="ns0:action_attachmentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_faculty_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_faculty_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_action_attachment_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_action_attachment_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_document_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_document_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_has_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_petition_has_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_petition_has_status_operationResponse">
+        <wsdl:part name="parameters" element="ns0:petition_has_statusCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_petition_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_petition_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_status_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_status_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_status_operationResponse">
+        <wsdl:part name="parameters" element="ns0:statusCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_document_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_document_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_document_operationResponse">
+        <wsdl:part name="parameters" element="ns0:documentCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SAPMS_Main_Data_ServicePortType">
+        <wsdl:operation name="select_all_petition_has_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_petition_has_status_operationRequest" wsaw:Action="urn:select_all_petition_has_status_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_petition_has_status_operationResponse" wsaw:Action="urn:select_all_petition_has_status_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_petition_has_status_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_petition_operationRequest" wsaw:Action="urn:insert_petition_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_petition_type_operationRequest" wsaw:Action="urn:update_petition_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_action_operationRequest" wsaw:Action="urn:update_action_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_document_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_document_operationRequest" wsaw:Action="urn:select_with_key_document_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_document_operationResponse" wsaw:Action="urn:select_with_key_document_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_document_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_petition_type_operationRequest" wsaw:Action="urn:select_all_petition_type_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_petition_type_operationResponse" wsaw:Action="urn:select_all_petition_type_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_petition_type_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_action_operationRequest" wsaw:Action="urn:select_all_action_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_action_operationResponse" wsaw:Action="urn:select_all_action_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_action_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_has_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_petition_has_status_operationRequest" wsaw:Action="urn:delete_petition_has_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_action_attachment_operationRequest" wsaw:Action="urn:update_action_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_action_operationRequest" wsaw:Action="urn:select_with_key_action_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_action_operationResponse" wsaw:Action="urn:select_with_key_action_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_action_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_action_type_operationRequest" wsaw:Action="urn:select_all_action_type_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_action_type_operationResponse" wsaw:Action="urn:select_all_action_type_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_action_type_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_petition_operationRequest" wsaw:Action="urn:update_petition_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_faculty_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_faculty_operationRequest" wsaw:Action="urn:insert_faculty_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_status_operationRequest" wsaw:Action="urn:insert_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_status_operationRequest" wsaw:Action="urn:delete_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_action_type_operationRequest" wsaw:Action="urn:update_action_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_action_type_operationRequest" wsaw:Action="urn:delete_action_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_student_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_student_operationRequest" wsaw:Action="urn:select_all_student_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_student_operationResponse" wsaw:Action="urn:select_all_student_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_student_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_petition_attachment_operationRequest" wsaw:Action="urn:update_petition_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_status_operationRequest" wsaw:Action="urn:update_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_faculty_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_faculty_operationRequest" wsaw:Action="urn:delete_faculty_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_faculty_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_faculty_operationRequest" wsaw:Action="urn:select_with_key_faculty_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_faculty_operationResponse" wsaw:Action="urn:select_with_key_faculty_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_faculty_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_petition_attachment_operationRequest" wsaw:Action="urn:select_all_petition_attachment_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_petition_attachment_operationResponse" wsaw:Action="urn:select_all_petition_attachment_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_petition_attachment_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_document_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_document_operationRequest" wsaw:Action="urn:delete_document_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_document_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_document_operationRequest" wsaw:Action="urn:insert_document_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_has_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_petition_has_status_operationRequest" wsaw:Action="urn:insert_petition_has_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_action_type_operationRequest" wsaw:Action="urn:select_with_key_action_type_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_action_type_operationResponse" wsaw:Action="urn:select_with_key_action_type_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_action_type_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_student_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_student_operationRequest" wsaw:Action="urn:delete_student_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_action_type_operationRequest" wsaw:Action="urn:insert_action_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_status_operationRequest" wsaw:Action="urn:select_with_key_status_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_status_operationResponse" wsaw:Action="urn:select_with_key_status_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_status_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_student_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_student_operationRequest" wsaw:Action="urn:insert_student_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_petition_operationRequest" wsaw:Action="urn:select_all_petition_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_petition_operationResponse" wsaw:Action="urn:select_all_petition_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_petition_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_student_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_student_operationRequest" wsaw:Action="urn:update_student_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_petition_type_operationRequest" wsaw:Action="urn:select_with_key_petition_type_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_petition_type_operationResponse" wsaw:Action="urn:select_with_key_petition_type_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_petition_type_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_petition_attachment_operationRequest" wsaw:Action="urn:select_with_key_petition_attachment_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_petition_attachment_operationResponse" wsaw:Action="urn:select_with_key_petition_attachment_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_petition_attachment_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_action_attachment_operationRequest" wsaw:Action="urn:select_with_key_action_attachment_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_action_attachment_operationResponse" wsaw:Action="urn:select_with_key_action_attachment_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_action_attachment_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_petition_type_operationRequest" wsaw:Action="urn:insert_petition_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_petition_operationRequest" wsaw:Action="urn:select_with_key_petition_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_petition_operationResponse" wsaw:Action="urn:select_with_key_petition_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_petition_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_faculty_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_faculty_operationRequest" wsaw:Action="urn:select_all_faculty_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_faculty_operationResponse" wsaw:Action="urn:select_all_faculty_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_faculty_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_student_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_student_operationRequest" wsaw:Action="urn:select_with_key_student_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_student_operationResponse" wsaw:Action="urn:select_with_key_student_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_student_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_action_operationRequest" wsaw:Action="urn:delete_action_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_action_attachment_operationRequest" wsaw:Action="urn:insert_action_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_petition_attachment_operationRequest" wsaw:Action="urn:delete_petition_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_action_operationRequest" wsaw:Action="urn:insert_action_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_type_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_petition_type_operationRequest" wsaw:Action="urn:delete_petition_type_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_petition_attachment_operationRequest" wsaw:Action="urn:insert_petition_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_has_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_petition_has_status_operationRequest" wsaw:Action="urn:update_petition_has_status_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_action_attachment_operationRequest" wsaw:Action="urn:select_all_action_attachment_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_action_attachment_operationResponse" wsaw:Action="urn:select_all_action_attachment_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_action_attachment_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_faculty_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_faculty_operationRequest" wsaw:Action="urn:update_faculty_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_attachment_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_action_attachment_operationRequest" wsaw:Action="urn:delete_action_attachment_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_document_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_document_operationRequest" wsaw:Action="urn:update_document_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_has_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_petition_has_status_operationRequest" wsaw:Action="urn:select_with_key_petition_has_status_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_petition_has_status_operationResponse" wsaw:Action="urn:select_with_key_petition_has_status_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_petition_has_status_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_petition_operationRequest" wsaw:Action="urn:delete_petition_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_status_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_status_operationRequest" wsaw:Action="urn:select_all_status_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_status_operationResponse" wsaw:Action="urn:select_all_status_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_status_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_document_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_document_operationRequest" wsaw:Action="urn:select_all_document_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_document_operationResponse" wsaw:Action="urn:select_all_document_operationResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_document_operationDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SAPMS_Main_Data_ServiceSOAP11Binding" type="ns0:SAPMS_Main_Data_ServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="select_all_petition_has_status_operation">
+            <soap:operation soapAction="urn:select_all_petition_has_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_operation">
+            <soap:operation soapAction="urn:insert_petition_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_type_operation">
+            <soap:operation soapAction="urn:update_petition_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_operation">
+            <soap:operation soapAction="urn:update_action_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_document_operation">
+            <soap:operation soapAction="urn:select_with_key_document_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_type_operation">
+            <soap:operation soapAction="urn:select_all_petition_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_operation">
+            <soap:operation soapAction="urn:select_all_action_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_has_status_operation">
+            <soap:operation soapAction="urn:delete_petition_has_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_attachment_operation">
+            <soap:operation soapAction="urn:update_action_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_operation">
+            <soap:operation soapAction="urn:select_with_key_action_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_type_operation">
+            <soap:operation soapAction="urn:select_all_action_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_operation">
+            <soap:operation soapAction="urn:update_petition_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_faculty_operation">
+            <soap:operation soapAction="urn:insert_faculty_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_status_operation">
+            <soap:operation soapAction="urn:insert_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_status_operation">
+            <soap:operation soapAction="urn:delete_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_type_operation">
+            <soap:operation soapAction="urn:update_action_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_type_operation">
+            <soap:operation soapAction="urn:delete_action_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_student_operation">
+            <soap:operation soapAction="urn:select_all_student_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_attachment_operation">
+            <soap:operation soapAction="urn:update_petition_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_status_operation">
+            <soap:operation soapAction="urn:update_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_faculty_operation">
+            <soap:operation soapAction="urn:delete_faculty_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_faculty_operation">
+            <soap:operation soapAction="urn:select_with_key_faculty_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_attachment_operation">
+            <soap:operation soapAction="urn:select_all_petition_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_document_operation">
+            <soap:operation soapAction="urn:delete_document_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_document_operation">
+            <soap:operation soapAction="urn:insert_document_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_has_status_operation">
+            <soap:operation soapAction="urn:insert_petition_has_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_type_operation">
+            <soap:operation soapAction="urn:select_with_key_action_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_student_operation">
+            <soap:operation soapAction="urn:delete_student_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_type_operation">
+            <soap:operation soapAction="urn:insert_action_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_status_operation">
+            <soap:operation soapAction="urn:select_with_key_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_student_operation">
+            <soap:operation soapAction="urn:insert_student_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_operation">
+            <soap:operation soapAction="urn:select_all_petition_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_student_operation">
+            <soap:operation soapAction="urn:update_student_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_type_operation">
+            <soap:operation soapAction="urn:select_with_key_petition_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_attachment_operation">
+            <soap:operation soapAction="urn:select_with_key_petition_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_attachment_operation">
+            <soap:operation soapAction="urn:select_with_key_action_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_type_operation">
+            <soap:operation soapAction="urn:insert_petition_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_operation">
+            <soap:operation soapAction="urn:select_with_key_petition_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_faculty_operation">
+            <soap:operation soapAction="urn:select_all_faculty_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_student_operation">
+            <soap:operation soapAction="urn:select_with_key_student_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_operation">
+            <soap:operation soapAction="urn:delete_action_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_attachment_operation">
+            <soap:operation soapAction="urn:insert_action_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_attachment_operation">
+            <soap:operation soapAction="urn:delete_petition_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_operation">
+            <soap:operation soapAction="urn:insert_action_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_type_operation">
+            <soap:operation soapAction="urn:delete_petition_type_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_attachment_operation">
+            <soap:operation soapAction="urn:insert_petition_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_has_status_operation">
+            <soap:operation soapAction="urn:update_petition_has_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_attachment_operation">
+            <soap:operation soapAction="urn:select_all_action_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_faculty_operation">
+            <soap:operation soapAction="urn:update_faculty_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_attachment_operation">
+            <soap:operation soapAction="urn:delete_action_attachment_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_document_operation">
+            <soap:operation soapAction="urn:update_document_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_has_status_operation">
+            <soap:operation soapAction="urn:select_with_key_petition_has_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_operation">
+            <soap:operation soapAction="urn:delete_petition_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_status_operation">
+            <soap:operation soapAction="urn:select_all_status_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_document_operation">
+            <soap:operation soapAction="urn:select_all_document_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SAPMS_Main_Data_ServiceSOAP12Binding" type="ns0:SAPMS_Main_Data_ServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="select_all_petition_has_status_operation">
+            <soap12:operation soapAction="urn:select_all_petition_has_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_operation">
+            <soap12:operation soapAction="urn:insert_petition_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_type_operation">
+            <soap12:operation soapAction="urn:update_petition_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_operation">
+            <soap12:operation soapAction="urn:update_action_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_document_operation">
+            <soap12:operation soapAction="urn:select_with_key_document_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_type_operation">
+            <soap12:operation soapAction="urn:select_all_petition_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_operation">
+            <soap12:operation soapAction="urn:select_all_action_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_has_status_operation">
+            <soap12:operation soapAction="urn:delete_petition_has_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_attachment_operation">
+            <soap12:operation soapAction="urn:update_action_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_operation">
+            <soap12:operation soapAction="urn:select_with_key_action_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_type_operation">
+            <soap12:operation soapAction="urn:select_all_action_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_operation">
+            <soap12:operation soapAction="urn:update_petition_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_faculty_operation">
+            <soap12:operation soapAction="urn:insert_faculty_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_status_operation">
+            <soap12:operation soapAction="urn:insert_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_status_operation">
+            <soap12:operation soapAction="urn:delete_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_type_operation">
+            <soap12:operation soapAction="urn:update_action_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_type_operation">
+            <soap12:operation soapAction="urn:delete_action_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_student_operation">
+            <soap12:operation soapAction="urn:select_all_student_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_attachment_operation">
+            <soap12:operation soapAction="urn:update_petition_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_status_operation">
+            <soap12:operation soapAction="urn:update_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_faculty_operation">
+            <soap12:operation soapAction="urn:delete_faculty_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_faculty_operation">
+            <soap12:operation soapAction="urn:select_with_key_faculty_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_attachment_operation">
+            <soap12:operation soapAction="urn:select_all_petition_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_document_operation">
+            <soap12:operation soapAction="urn:delete_document_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_document_operation">
+            <soap12:operation soapAction="urn:insert_document_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_has_status_operation">
+            <soap12:operation soapAction="urn:insert_petition_has_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_type_operation">
+            <soap12:operation soapAction="urn:select_with_key_action_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_student_operation">
+            <soap12:operation soapAction="urn:delete_student_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_type_operation">
+            <soap12:operation soapAction="urn:insert_action_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_status_operation">
+            <soap12:operation soapAction="urn:select_with_key_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_student_operation">
+            <soap12:operation soapAction="urn:insert_student_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_operation">
+            <soap12:operation soapAction="urn:select_all_petition_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_student_operation">
+            <soap12:operation soapAction="urn:update_student_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_type_operation">
+            <soap12:operation soapAction="urn:select_with_key_petition_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_attachment_operation">
+            <soap12:operation soapAction="urn:select_with_key_petition_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_attachment_operation">
+            <soap12:operation soapAction="urn:select_with_key_action_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_type_operation">
+            <soap12:operation soapAction="urn:insert_petition_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_operation">
+            <soap12:operation soapAction="urn:select_with_key_petition_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_faculty_operation">
+            <soap12:operation soapAction="urn:select_all_faculty_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_student_operation">
+            <soap12:operation soapAction="urn:select_with_key_student_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_operation">
+            <soap12:operation soapAction="urn:delete_action_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_attachment_operation">
+            <soap12:operation soapAction="urn:insert_action_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_attachment_operation">
+            <soap12:operation soapAction="urn:delete_petition_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_operation">
+            <soap12:operation soapAction="urn:insert_action_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_type_operation">
+            <soap12:operation soapAction="urn:delete_petition_type_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_attachment_operation">
+            <soap12:operation soapAction="urn:insert_petition_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_has_status_operation">
+            <soap12:operation soapAction="urn:update_petition_has_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_attachment_operation">
+            <soap12:operation soapAction="urn:select_all_action_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_faculty_operation">
+            <soap12:operation soapAction="urn:update_faculty_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_attachment_operation">
+            <soap12:operation soapAction="urn:delete_action_attachment_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_document_operation">
+            <soap12:operation soapAction="urn:update_document_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_has_status_operation">
+            <soap12:operation soapAction="urn:select_with_key_petition_has_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_operation">
+            <soap12:operation soapAction="urn:delete_petition_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_status_operation">
+            <soap12:operation soapAction="urn:select_all_status_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_document_operation">
+            <soap12:operation soapAction="urn:select_all_document_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SAPMS_Main_Data_ServiceHttpBinding" type="ns0:SAPMS_Main_Data_ServicePortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="select_all_petition_has_status_operation">
+            <http:operation location="select_all_petition_has_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_operation">
+            <http:operation location="insert_petition_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_type_operation">
+            <http:operation location="update_petition_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_operation">
+            <http:operation location="update_action_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_document_operation">
+            <http:operation location="select_with_key_document_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_type_operation">
+            <http:operation location="select_all_petition_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_operation">
+            <http:operation location="select_all_action_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_has_status_operation">
+            <http:operation location="delete_petition_has_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_attachment_operation">
+            <http:operation location="update_action_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_operation">
+            <http:operation location="select_with_key_action_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_type_operation">
+            <http:operation location="select_all_action_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_operation">
+            <http:operation location="update_petition_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_faculty_operation">
+            <http:operation location="insert_faculty_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_status_operation">
+            <http:operation location="insert_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_status_operation">
+            <http:operation location="delete_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_action_type_operation">
+            <http:operation location="update_action_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_type_operation">
+            <http:operation location="delete_action_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_student_operation">
+            <http:operation location="select_all_student_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_attachment_operation">
+            <http:operation location="update_petition_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_status_operation">
+            <http:operation location="update_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_faculty_operation">
+            <http:operation location="delete_faculty_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_faculty_operation">
+            <http:operation location="select_with_key_faculty_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_attachment_operation">
+            <http:operation location="select_all_petition_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_document_operation">
+            <http:operation location="delete_document_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_document_operation">
+            <http:operation location="insert_document_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_has_status_operation">
+            <http:operation location="insert_petition_has_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_type_operation">
+            <http:operation location="select_with_key_action_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_student_operation">
+            <http:operation location="delete_student_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_type_operation">
+            <http:operation location="insert_action_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_status_operation">
+            <http:operation location="select_with_key_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insert_student_operation">
+            <http:operation location="insert_student_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_petition_operation">
+            <http:operation location="select_all_petition_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_student_operation">
+            <http:operation location="update_student_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_type_operation">
+            <http:operation location="select_with_key_petition_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_attachment_operation">
+            <http:operation location="select_with_key_petition_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_action_attachment_operation">
+            <http:operation location="select_with_key_action_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_type_operation">
+            <http:operation location="insert_petition_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_operation">
+            <http:operation location="select_with_key_petition_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_faculty_operation">
+            <http:operation location="select_all_faculty_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_student_operation">
+            <http:operation location="select_with_key_student_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_operation">
+            <http:operation location="delete_action_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_attachment_operation">
+            <http:operation location="insert_action_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_attachment_operation">
+            <http:operation location="delete_petition_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_action_operation">
+            <http:operation location="insert_action_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_type_operation">
+            <http:operation location="delete_petition_type_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_petition_attachment_operation">
+            <http:operation location="insert_petition_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_petition_has_status_operation">
+            <http:operation location="update_petition_has_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_action_attachment_operation">
+            <http:operation location="select_all_action_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_faculty_operation">
+            <http:operation location="update_faculty_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_action_attachment_operation">
+            <http:operation location="delete_action_attachment_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_document_operation">
+            <http:operation location="update_document_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_petition_has_status_operation">
+            <http:operation location="select_with_key_petition_has_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_petition_operation">
+            <http:operation location="delete_petition_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_status_operation">
+            <http:operation location="select_all_status_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_document_operation">
+            <http:operation location="select_all_document_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SAPMS_Main_Data_Service">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:SAPMS_Main_Data_ServiceSOAP11Binding">
+            <soap:address location="http://10.142.5.91:9763/services/SAPMS_Main_Data_Service.SOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:SAPMS_Main_Data_ServiceSOAP11Binding">
+            <soap:address location="https://10.142.5.91:9443/services/SAPMS_Main_Data_Service.SecureSOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:SAPMS_Main_Data_ServiceSOAP12Binding">
+            <soap12:address location="https://10.142.5.91:9443/services/SAPMS_Main_Data_Service.SecureSOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:SAPMS_Main_Data_ServiceSOAP12Binding">
+            <soap12:address location="http://10.142.5.91:9763/services/SAPMS_Main_Data_Service.SOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:SAPMS_Main_Data_ServiceHttpBinding">
+            <http:address location="http://10.142.5.91:9763/services/SAPMS_Main_Data_Service.HTTPEndpoint/"></http:address>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:SAPMS_Main_Data_ServiceHttpBinding">
+            <http:address location="https://10.142.5.91:9443/services/SAPMS_Main_Data_Service.SecureHTTPEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

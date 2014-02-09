@@ -1,0 +1,353 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="sa.edu.kfupm.banner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="sa.edu.kfupm.banner">
+    <wsdl:documentation>The webservice created for the SAPMS project.                                                                </wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="sa.edu.kfupm.banner">
+            <xs:element name="operation_GetStudentListByMajorShortName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Student_Major" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="StudentList" type="ns0:StudentList"></xs:element>
+            <xs:complexType name="StudentList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Student" type="ns0:Student"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Student">
+                <xs:sequence>
+                    <xs:element name="CURR_TERM" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="ADVISOR_ID" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_ID" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_NAME" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_EMAIL" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_PHONE" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_STATUS" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STATUS_DESC" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_DEPT" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="DEPT_DESC" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="STU_MAJOR" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="MAJOR_DESC" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="MAJOR_GPA" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="CGPA" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="COMPLETED_HRS" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="operation_GetStudentListByDepartmentShortName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Dept_Short_Code" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="operation_GetStudentInformationByID">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Student_KFUPM_ID" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="operation_GetAdviseeListByAdvisorID">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Advisor_ID" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="operation_GetStudentTranscript">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Student_KFUPM_ID" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CourseList" type="ns0:CourseList"></xs:element>
+            <xs:complexType name="CourseList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Course" type="ns0:Course"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Course">
+                <xs:sequence>
+                    <xs:element name="STUDENT_ID" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="COURSE_ID" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="COURSE_NAME" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="CREDIT_HOURS" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="TERM" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="GRADE" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"></xs:element>
+            <xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"></xs:any>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="operation_GetStudentTranscriptRequest">
+        <wsdl:part name="parameters" element="ns0:operation_GetStudentTranscript"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentTranscriptResponse">
+        <wsdl:part name="parameters" element="ns0:CourseList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentListByMajorShortNameRequest">
+        <wsdl:part name="parameters" element="ns0:operation_GetStudentListByMajorShortName"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentListByMajorShortNameResponse">
+        <wsdl:part name="parameters" element="ns0:StudentList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentInformationByIDRequest">
+        <wsdl:part name="parameters" element="ns0:operation_GetStudentInformationByID"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentInformationByIDResponse">
+        <wsdl:part name="parameters" element="ns0:StudentList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentListByDepartmentShortNameRequest">
+        <wsdl:part name="parameters" element="ns0:operation_GetStudentListByDepartmentShortName"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetStudentListByDepartmentShortNameResponse">
+        <wsdl:part name="parameters" element="ns0:StudentList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetAdviseeListByAdvisorIDRequest">
+        <wsdl:part name="parameters" element="ns0:operation_GetAdviseeListByAdvisorID"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="operation_GetAdviseeListByAdvisorIDResponse">
+        <wsdl:part name="parameters" element="ns0:StudentList"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="Banner_SAPMSPortType">
+        <wsdl:operation name="operation_GetStudentTranscript">
+            <wsdl:documentation>Returns the student transcript.                                    </wsdl:documentation>
+            <wsdl:input message="ns0:operation_GetStudentTranscriptRequest" wsaw:Action="urn:operation_GetStudentTranscript"></wsdl:input>
+            <wsdl:output message="ns0:operation_GetStudentTranscriptResponse" wsaw:Action="urn:operation_GetStudentTranscriptResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:operation_GetStudentTranscriptDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByMajorShortName">
+            <wsdl:documentation>Returns the student list in a major. Major code is given in the short form (like ICS, SWE, etc.)                                    </wsdl:documentation>
+            <wsdl:input message="ns0:operation_GetStudentListByMajorShortNameRequest" wsaw:Action="urn:operation_GetStudentListByMajorShortName"></wsdl:input>
+            <wsdl:output message="ns0:operation_GetStudentListByMajorShortNameResponse" wsaw:Action="urn:operation_GetStudentListByMajorShortNameResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:operation_GetStudentListByMajorShortNameDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentInformationByID">
+            <wsdl:documentation>Returns the student information when the KFUPM ID is given                                    </wsdl:documentation>
+            <wsdl:input message="ns0:operation_GetStudentInformationByIDRequest" wsaw:Action="urn:operation_GetStudentInformationByID"></wsdl:input>
+            <wsdl:output message="ns0:operation_GetStudentInformationByIDResponse" wsaw:Action="urn:operation_GetStudentInformationByIDResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:operation_GetStudentInformationByIDDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByDepartmentShortName">
+            <wsdl:documentation>Returns the student list for a department. Department name should be given in the short form (like ICS, COE ... etc.)                                    </wsdl:documentation>
+            <wsdl:input message="ns0:operation_GetStudentListByDepartmentShortNameRequest" wsaw:Action="urn:operation_GetStudentListByDepartmentShortName"></wsdl:input>
+            <wsdl:output message="ns0:operation_GetStudentListByDepartmentShortNameResponse" wsaw:Action="urn:operation_GetStudentListByDepartmentShortNameResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:operation_GetStudentListByDepartmentShortNameDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetAdviseeListByAdvisorID">
+            <wsdl:documentation>Returns the advisee list for a faculty member.                                    </wsdl:documentation>
+            <wsdl:input message="ns0:operation_GetAdviseeListByAdvisorIDRequest" wsaw:Action="urn:operation_GetAdviseeListByAdvisorID"></wsdl:input>
+            <wsdl:output message="ns0:operation_GetAdviseeListByAdvisorIDResponse" wsaw:Action="urn:operation_GetAdviseeListByAdvisorIDResponse"></wsdl:output>
+            <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:operation_GetAdviseeListByAdvisorIDDataServiceFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="Banner_SAPMSSOAP11Binding" type="ns0:Banner_SAPMSPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="operation_GetStudentTranscript">
+            <soap:operation soapAction="urn:operation_GetStudentTranscript" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByMajorShortName">
+            <soap:operation soapAction="urn:operation_GetStudentListByMajorShortName" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentInformationByID">
+            <soap:operation soapAction="urn:operation_GetStudentInformationByID" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByDepartmentShortName">
+            <soap:operation soapAction="urn:operation_GetStudentListByDepartmentShortName" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetAdviseeListByAdvisorID">
+            <soap:operation soapAction="urn:operation_GetAdviseeListByAdvisorID" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="Banner_SAPMSSOAP12Binding" type="ns0:Banner_SAPMSPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="operation_GetStudentTranscript">
+            <soap12:operation soapAction="urn:operation_GetStudentTranscript" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByMajorShortName">
+            <soap12:operation soapAction="urn:operation_GetStudentListByMajorShortName" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentInformationByID">
+            <soap12:operation soapAction="urn:operation_GetStudentInformationByID" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByDepartmentShortName">
+            <soap12:operation soapAction="urn:operation_GetStudentListByDepartmentShortName" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetAdviseeListByAdvisorID">
+            <soap12:operation soapAction="urn:operation_GetAdviseeListByAdvisorID" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <wsdl:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="Banner_SAPMSHttpBinding" type="ns0:Banner_SAPMSPortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="operation_GetStudentTranscript">
+            <http:operation location="operation_GetStudentTranscript"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByMajorShortName">
+            <http:operation location="operation_GetStudentListByMajorShortName"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentInformationByID">
+            <http:operation location="operation_GetStudentInformationByID"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetStudentListByDepartmentShortName">
+            <http:operation location="operation_GetStudentListByDepartmentShortName"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="operation_GetAdviseeListByAdvisorID">
+            <http:operation location="operation_GetAdviseeListByAdvisorID"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Banner_SAPMS">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:Banner_SAPMSSOAP11Binding">
+            <soap:address location="http://10.142.5.91:9763/services/Banner_SAPMS.SOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:Banner_SAPMSSOAP11Binding">
+            <soap:address location="https://10.142.5.91:9443/services/Banner_SAPMS.SecureSOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:Banner_SAPMSSOAP12Binding">
+            <soap12:address location="https://10.142.5.91:9443/services/Banner_SAPMS.SecureSOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:Banner_SAPMSSOAP12Binding">
+            <soap12:address location="http://10.142.5.91:9763/services/Banner_SAPMS.SOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:Banner_SAPMSHttpBinding">
+            <http:address location="http://10.142.5.91:9763/services/Banner_SAPMS.HTTPEndpoint/"></http:address>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:Banner_SAPMSHttpBinding">
+            <http:address location="https://10.142.5.91:9443/services/Banner_SAPMS.SecureHTTPEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
